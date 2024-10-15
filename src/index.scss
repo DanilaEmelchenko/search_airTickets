@@ -1,3 +1,26 @@
+@import './app/styles/functions';
+@import './app/styles/fonts';
+@import './app/styles/variables';
+
+.container {
+  padding: adapt(84px, 1920px) 0 adapt(59px, 1920px);
+  width: 65%;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: $fs_standart;
+  .header {
+    display: flex;
+    align-items: center;
+    gap: adapt(34px, 1920px);
+  }
+  .title {
+    font-size: 24px;
+    font-weight: 700;
+    color: $color-purple;
+  }
+}
+
 /* Box sizing reset */
 *,
 *::before,

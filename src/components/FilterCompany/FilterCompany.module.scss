@@ -1,0 +1,32 @@
+@import "../../app/styles/variables";
+@import "../../app/styles/functions";
+@import "../../app/styles/fonts";
+
+.filterCompany {
+  margin-top: adapt(47px, 1920px);
+  display: flex;
+  flex-direction: column;
+  padding: adapt(19px, 1920px) adapt(19px, 1920px) adapt(28px, 1920px);
+  width: adapt(272px, 1920px);
+  border-radius: 10px;
+  background-color: $color-light-lavender;
+  & .title {
+    font-weight: 700;
+    font-size: 20px;
+    color: $color-purple;
+  }
+  & .filter {
+    margin-left: adapt(26px, 1920px);
+    display: flex;
+    flex-direction: column;
+    gap: adapt(19px, 1920px);
+    margin-top: adapt(29px, 1920px);
+    & div {
+      display: flex;
+      gap: adapt(29px, 1920px);
+      & label {
+        color: $color-lavender;
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@import "../../app/styles/variables";
+@import "../../app/styles/functions";
+
+.radio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  border: 1px solid $color-purple;
+  width: adapt(21px, 1920px);
+  height: adapt(21px, 1920px);
+  cursor: pointer;
+  & span {
+    border-radius: 100%;
+    background-color: $color-purple;
+    width: adapt(15px, 1920px);
+    height: adapt(15px, 1920px);
+  }
+}
