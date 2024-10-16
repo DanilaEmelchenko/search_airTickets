@@ -11,11 +11,11 @@ function App() {
         <h1 className="title">Поиск авиабилетов</h1>
       </div>
       <div className="main">
-        <div className="filterTC">
+        <div className="filter">
           <FilterTrancfer />
           <FilterCompany />
         </div>
-        <div className="filter">
+        <div className="content">
           <Filter />
         </div>
       </div>
