@@ -1,25 +1,28 @@
-import Filter from '../components/Filter/Filter';
+import FilterPrice from "../components/FilterPrice/FilterPrice";
 import FilterCompany from "../components/FilterCompany/FilterCompany";
 import FilterTrancfer from "../components/FilterTrancfer/FilterTrancfer";
 import "../index.scss";
+import Providers from "./providers/providers";
 
 function App() {
   return (
-    <div className="container">
-      <div className="header">
-        <img src="icons/logo.svg" alt="logo" />
-        <h1 className="title">Поиск авиабилетов</h1>
-      </div>
-      <div className="main">
-        <div className="filter">
-          <FilterTrancfer />
-          <FilterCompany />
+    <Providers>
+      <div className="container">
+        <div className="header">
+          <img src="icons/logo.svg" alt="logo" />
+          <h1 className="title">Поиск авиабилетов</h1>
         </div>
-        <div className="content">
-          <Filter />
+        <div className="main">
+          <div className="filter">
+            <FilterTrancfer />
+            <FilterCompany />
+          </div>
+          <div className="content">
+            <FilterPrice />
+          </div>
         </div>
       </div>
-    </div>
+    </Providers>
   );
 }
 

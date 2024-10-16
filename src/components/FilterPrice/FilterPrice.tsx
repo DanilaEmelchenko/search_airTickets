@@ -1,5 +1,5 @@
 import Button from "../../ui/Button/Button";
-import s from "./Filter.module.scss";
+import s from "./FilterPrice.module.scss";
 import { useState } from "react";
 import cn from "classnames";
 
@@ -23,7 +23,7 @@ const arrayButtons: IButton[] = [
   },
 ];
 
-const Filter = () => {
+const FilterPrice = () => {
   const [active, setActive] = useState<number | null>(null);
 
   const toggleActive = (id: number) => {
@@ -31,7 +31,7 @@ const Filter = () => {
   };
 
   return (
-    <div className={s.filter}>
+    <div className={s.filterPrice}>
       {arrayButtons.map((el) => (
         <Button
           key={el.id}
@@ -47,4 +47,4 @@ const Filter = () => {
   );
 };
 
-export default Filter;
+export default FilterPrice;
