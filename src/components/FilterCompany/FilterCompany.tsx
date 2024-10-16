@@ -14,10 +14,12 @@ const arrayListCompany: ICompany[] = [
 ];
 
 const FilterCompany = () => {
-  const [visibleRadio, setVisibleRadio] = useState<number | null>(null);
+  const [visibleRadio, setVisibleRadio] = useState<number[]>([]);
 
   const toggleVisible = (id: number) => {
-    setVisibleRadio((p) => (p === id ? null : id));
+    setVisibleRadio((p) =>
+      p.includes(id) ? p.filter((i) => i !== id) : [...p, id]
+    );
   };
   return (
     <div className={s.filterCompany}>
@@ -26,7 +28,7 @@ const FilterCompany = () => {
         {arrayListCompany.map((el) => (
           <div key={el.id}>
             <Radio
-              visible={visibleRadio === el.id}
+              visible={visibleRadio.includes(el.id)}
               onClick={() => toggleVisible(el.id)}
             />
             <label>{el.title}</label>

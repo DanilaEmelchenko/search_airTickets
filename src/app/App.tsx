@@ -1,4 +1,5 @@
-import FilterCompany from '../components/FilterCompany/FilterCompany';
+import Filter from '../components/Filter/Filter';
+import FilterCompany from "../components/FilterCompany/FilterCompany";
 import FilterTrancfer from "../components/FilterTrancfer/FilterTrancfer";
 import "../index.scss";
 
@@ -10,8 +11,13 @@ function App() {
         <h1 className="title">Поиск авиабилетов</h1>
       </div>
       <div className="main">
-        <FilterTrancfer />
-        <FilterCompany />
+        <div className="filterTC">
+          <FilterTrancfer />
+          <FilterCompany />
+        </div>
+        <div className="filter">
+          <Filter />
+        </div>
       </div>
     </div>
   );

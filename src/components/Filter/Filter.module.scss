@@ -1,0 +1,25 @@
+@import "../../app/styles/variables";
+@import "../../app/styles/functions";
+@import "../../app/styles/fonts";
+
+.filter {
+  display: flex;
+  & .button {
+    padding: adapt(18px, 1920px) adapt(50px, 1920px);
+    border-right: 1px solid $color-purple;
+    font-weight: 700;
+    color: $color-purple;
+    border: 1px solid $color-purple;
+    background-color: $color-light-lavender;
+    &:first-child {
+      border-radius: 10px 0 0 10px;
+    }
+    &:last-child {
+      border-radius: 0 10px 10px 0;
+    }
+  }
+  & .active {
+    background-color: $color-purple;
+    color: $color-white;
+  }
+}
