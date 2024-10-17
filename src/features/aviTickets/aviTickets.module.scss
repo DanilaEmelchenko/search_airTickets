@@ -1,0 +1,53 @@
+@import "../../app/styles/variables";
+@import "../../app/styles/functions";
+@import "../../app/styles/fonts";
+
+.aviTickets__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: adapt(47px, 1920px);
+  & .aviTickets {
+    margin-top: adapt(29px, 1920px);
+    border-radius: 10px;
+    background-color: $color-light-lavender;
+    padding: adapt(32px, 1920px) adapt(43px, 1920px) adapt(25px, 1920px)
+      adapt(39px, 1920px);
+    & .top {
+      display: flex;
+      justify-content: space-between;
+      & .price {
+        font-weight: 700;
+        font-size: 32px;
+        color: $color-purple;
+      }
+    }
+    & .bottom {
+      margin-top: adapt(25px, 1920px);
+      display: flex;
+      justify-content: space-between;
+      & .route,
+      & .status,
+      & .transferTitle {
+        padding-bottom: adapt(9px, 1920px);
+        font-weight: 500;
+        color: $color-lavender;
+      }
+      & .time,
+      & .duration,
+      & .transferCount {
+        font-weight: 500;
+        color: $color-purple;
+      }
+    }
+  }
+}
+.button {
+  width: 100%;
+  margin-top: adapt(74px, 1920px);
+  padding: adapt(16px, 1920px) 0 adapt(17px, 1920px);
+  font-weight: 700;
+  font-size: 24px;
+  color: $color-white;
+  background-color: $color-purple;
+  border-radius: 10px;
+}

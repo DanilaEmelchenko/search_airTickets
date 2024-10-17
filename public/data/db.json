@@ -1,0 +1,28 @@
+{
+  "tickets": [
+    {
+      "id": 1,
+      "price": "12 680",
+      "time": "12:00 - 16:30",
+      "duration": "4 ч 30 мин",
+      "transferCount": "1 пересадка",
+      "logo": "/images/pobeda.png"
+    },
+    {
+      "id": 2,
+      "price": "14 500",
+      "time": "14:00 - 16:00",
+      "duration": "2 ч 0 мин",
+      "transferCount": "Без пересадок",
+      "logo": "/images/red-wings.png"
+    },
+    {
+      "id": 3,
+      "price": "16 500",
+      "time": "04:50 - 13:30",
+      "duration": "8 ч 40 мин",
+      "transferCount": "2 пересадки",
+      "logo": "/images/airlines.png"
+    }
+  ]
+}

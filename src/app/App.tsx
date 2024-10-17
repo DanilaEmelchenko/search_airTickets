@@ -3,6 +3,7 @@ import FilterCompany from "../components/FilterCompany/FilterCompany";
 import FilterTrancfer from "../components/FilterTrancfer/FilterTrancfer";
 import "../index.scss";
 import Providers from "./providers/providers";
+import AviTickets from '../features/aviTickets/aviTickets';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
           </div>
           <div className="content">
             <FilterPrice />
+            <div className='tickets'>
+              < AviTickets />
+            </div>
           </div>
         </div>
       </div>
