@@ -12,41 +12,43 @@ interface Ticket {
 
 interface AviTicketsState {
   tickets: Ticket[];
-  isLoading: boolean;
+  visiblelimit: number;
   error: string;
 }
 
 const initialState: AviTicketsState = {
   tickets: [],
-  isLoading: false,
+  visiblelimit: 3,
   error: "",
 };
 
 export const aviTicketsSlice = createSlice({
   name: "aviTickets",
   initialState,
-  reducers: {},
+  reducers: {
+    loadMoreTickets: (state) => {
+      state.visiblelimit += 3;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchAviTickets.pending, (state) => {
-        state.isLoading = true;
         state.error = "";
       })
       .addCase(
         fetchAviTickets.fulfilled,
         (state, action: PayloadAction<Ticket[]>) => {
-          state.isLoading = false;
           state.tickets = action.payload;
         }
       )
       .addCase(
         fetchAviTickets.rejected.type,
         (state, action: PayloadAction<string>) => {
-          state.isLoading = false;
           state.error = action.payload;
         }
       );
   },
 });
 
+export const { loadMoreTickets } = aviTicketsSlice.actions;
 export default aviTicketsSlice.reducer;

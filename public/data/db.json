@@ -23,6 +23,54 @@
       "duration": "8 ч 40 мин",
       "transferCount": "2 пересадки",
       "logo": "/images/airlines.png"
+    },
+    {
+      "id": 4,
+      "price": "20 680",
+      "time": "12:00 - 16:30",
+      "duration": "4 ч 30 мин",
+      "transferCount": "1 пересадка",
+      "logo": "/images/pobeda.png"
+    },
+    {
+      "id": 5,
+      "price": "25 500",
+      "time": "14:00 - 16:00",
+      "duration": "2 ч 0 мин",
+      "transferCount": "Без пересадок",
+      "logo": "/images/red-wings.png"
+    },
+    {
+      "id": 6,
+      "price": "30 500",
+      "time": "04:50 - 13:30",
+      "duration": "8 ч 40 мин",
+      "transferCount": "3 пересадки",
+      "logo": "/images/airlines.png"
+    },
+    {
+      "id": 7,
+      "price": "20 680",
+      "time": "12:00 - 16:30",
+      "duration": "4 ч 30 мин",
+      "transferCount": "1 пересадка",
+      "logo": "/images/pobeda.png"
+    },
+    {
+      "id": 8,
+      "price": "25 500",
+      "time": "14:00 - 16:00",
+      "duration": "2 ч 0 мин",
+      "transferCount": "Без пересадок",
+      "logo": "/images/red-wings.png"
+    },
+    {
+      "id": 9,
+      "price": "10 500",
+      "time": "04:50 - 13:30",
+      "duration": "1 ч 40 мин",
+      "transferCount": "3 пересадки",
+      "logo": "/images/airlines.png"
     }
   ]
 }

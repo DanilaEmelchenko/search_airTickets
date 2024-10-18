@@ -1,22 +1,30 @@
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { fetchAviTickets } from "./aviTicketsThunks";
+import { loadMoreTickets} from "./aviTicketsSlice";
 import Button from "../../ui/Button/Button";
 import s from "./aviTickets.module.scss";
 import { useEffect, useState } from "react";
 
 const AviTickets = () => {
   const dispatch = useAppDispatch();
-  const { tickets, error } = useAppSelector((state) => state.aviTickets);
-  const [loading, setLoading] = useState(true);
+  const { tickets, error, visiblelimit} = useAppSelector(
+    (state) => state.aviTickets
+  );
+  const [loading, setLoading] = useState<boolean>(true);
+  const [visibleLoading, setVisibleLoading] = useState<string>("");
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
+      setVisibleLoading("Все билеты загружены");
       dispatch(fetchAviTickets());
     }, 1000);
-
     return () => clearTimeout(timer);
   }, [dispatch]);
+
+  const clickLoadMore = () => {
+    dispatch(loadMoreTickets());
+  };
 
   if (!tickets) {
     return <div>Ничего не найдено</div>;
@@ -29,7 +37,7 @@ const AviTickets = () => {
     <>
       <div className={s.aviTickets__wrapper}>
         {loading && <div>Загрузка...</div>}
-        {tickets.map((el) => (
+        {tickets.slice(0, visiblelimit).map((el) => (
           <div key={el.id} className={s.aviTickets}>
             <div className={s.top}>
               <p className={s.price}>{el.price} Р</p>
@@ -52,7 +60,13 @@ const AviTickets = () => {
           </div>
         ))}
       </div>
-      <Button className={s.button}>Загрузить еще билеты</Button>
+      {visiblelimit < tickets.length ? (
+        <Button onClick={clickLoadMore} className={s.button}>
+          Загрузить еще билеты
+        </Button>
+      ) : (
+        <div>{visibleLoading}</div>
+      )}
     </>
   );
 };
