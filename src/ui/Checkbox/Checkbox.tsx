@@ -1,11 +1,12 @@
+import { FunctionComponent } from "react";
 import s from "./Checkbox.module.scss";
 
-interface CheckboxProps {
+type CheckboxProps = {
   onClick: () => void;
   visible: boolean;
-}
+};
 
-const Checkbox = ({ onClick, visible }: CheckboxProps) => {
+const Checkbox: FunctionComponent<CheckboxProps> = ({ onClick, visible }) => {
   return (
     <div onClick={onClick} className={s.checkbox}>
       {visible && (

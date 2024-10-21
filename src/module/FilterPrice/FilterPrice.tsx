@@ -1,6 +1,6 @@
 import Button from "../../ui/Button/Button";
 import s from "./FilterPrice.module.scss";
-import { useState } from "react";
+import { FunctionComponent, useState } from "react";
 import cn from "classnames";
 
 interface IButton {
@@ -23,7 +23,7 @@ const arrayButtons: IButton[] = [
   },
 ];
 
-const FilterPrice = () => {
+const FilterPrice:FunctionComponent = () => {
   const [active, setActive] = useState<number | null>(null);
 
   const toggleActive = (id: number) => {

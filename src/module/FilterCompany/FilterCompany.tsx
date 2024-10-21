@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FunctionComponent, useState } from "react";
 import Radio from "../../ui/Radio/Radio";
 import s from "./FilterCompany.module.scss";
 
@@ -13,7 +13,7 @@ const arrayListCompany: ICompany[] = [
   { id: 3, title: "S7 Airlines" },
 ];
 
-const FilterCompany = () => {
+const FilterCompany:FunctionComponent = () => {
   const [visibleRadio, setVisibleRadio] = useState<number[]>([]);
 
   const toggleVisible = (id: number) => {

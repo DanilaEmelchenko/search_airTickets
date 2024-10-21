@@ -1,11 +1,12 @@
+import { FunctionComponent } from "react";
 import s from "./Radio.module.scss";
 
-interface RadioProps {
+type RadioProps = {
   onClick: () => void;
   visible: boolean;
-}
+};
 
-const Radio = ({ visible, onClick }: RadioProps) => {
+const Radio: FunctionComponent<RadioProps> = ({ visible, onClick }) => {
   return (
     <div onClick={onClick} className={s.radio}>
       {visible && <span></span>}

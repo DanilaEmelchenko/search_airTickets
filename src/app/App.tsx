@@ -4,8 +4,9 @@ import FilterTrancfer from "../module/FilterTrancfer/FilterTrancfer";
 import "../index.scss";
 import Providers from "./providers/providers";
 import AviTickets from "../module/aviTickets/aviTickets";
+import { FunctionComponent } from "react";
 
-function App() {
+const App: FunctionComponent = () => {
   return (
     <Providers>
       <div className="container">
@@ -28,6 +29,6 @@ function App() {
       </div>
     </Providers>
   );
-}
+};
 
 export default App;

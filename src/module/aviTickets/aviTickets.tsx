@@ -1,11 +1,13 @@
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { FunctionComponent, useEffect, useState } from "react";
+
 import { fetchAviTickets } from "../../api/aviTicketsThunks";
 import { loadMoreTickets } from "../../state/aviTicketsSlice";
+
 import Button from "../../ui/Button/Button";
 import s from "./aviTickets.module.scss";
-import { useEffect, useState } from "react";
 
-const AviTickets = () => {
+const AviTickets:FunctionComponent = () => {
   const dispatch = useAppDispatch();
   const { tickets, error, visiblelimit } = useAppSelector(
     (state) => state.aviTickets

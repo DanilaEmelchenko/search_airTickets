@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FunctionComponent, useState } from "react";
 import Checkbox from "../../ui/Checkbox/Checkbox";
 import s from "./FilterTrancfer.module.scss";
 
@@ -14,7 +14,7 @@ const arrayListTrancfer: ITrancfer[] = [
   { id: 4, title: "3 пересадки" },
 ];
 
-const FilterTrancfer = () => {
+const FilterTrancfer:FunctionComponent = () => {
   const [visibleCheckbox, setVisibleCheckbox] = useState<number | null>(null);
 
   const toggleVisible = (id: number) => {
