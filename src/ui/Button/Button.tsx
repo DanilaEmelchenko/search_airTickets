@@ -1,4 +1,4 @@
-const Button = ({ children, ...props }) => {
+const Button = ({ children, ...props }: any) => {
   return <button {...props}>{children}</button>;
 };
 

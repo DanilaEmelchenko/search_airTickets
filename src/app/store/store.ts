@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import aviTicketsReducer from "../../features/aviTickets/aviTicketsSlice";
+import aviTicketsReducer from "../../state/aviTicketsSlice";
 
 export const store = configureStore({
   reducer: {

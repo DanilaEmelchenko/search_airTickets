@@ -1,9 +1,9 @@
-import FilterPrice from "../components/FilterPrice/FilterPrice";
-import FilterCompany from "../components/FilterCompany/FilterCompany";
-import FilterTrancfer from "../components/FilterTrancfer/FilterTrancfer";
+import FilterPrice from "../module/FilterPrice/FilterPrice";
+import FilterCompany from "../module/FilterCompany/FilterCompany";
+import FilterTrancfer from "../module/FilterTrancfer/FilterTrancfer";
 import "../index.scss";
 import Providers from "./providers/providers";
-import AviTickets from '../features/aviTickets/aviTickets';
+import AviTickets from "../module/aviTickets/aviTickets";
 
 function App() {
   return (
@@ -20,8 +20,8 @@ function App() {
           </div>
           <div className="content">
             <FilterPrice />
-            <div className='tickets'>
-              < AviTickets />
+            <div className="tickets">
+              <AviTickets />
             </div>
           </div>
         </div>

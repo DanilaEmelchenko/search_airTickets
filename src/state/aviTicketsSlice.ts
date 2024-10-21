@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { fetchAviTickets } from "./aviTicketsThunks";
+import { fetchAviTickets } from "../api/aviTicketsThunks";
 
 interface Ticket {
   id: number;
