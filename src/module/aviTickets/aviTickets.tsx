@@ -4,12 +4,14 @@ import { FunctionComponent, useEffect, useState } from "react";
 import { fetchAviTickets } from "../../api/aviTicketsThunks";
 import { loadMoreTickets } from "../../state/aviTicketsSlice";
 
+import { convertDurationToMinutes } from "../../utils/index";
+
 import Button from "../../ui/Button/Button";
 import s from "./aviTickets.module.scss";
 
-const AviTickets:FunctionComponent = () => {
+const AviTickets: FunctionComponent = () => {
   const dispatch = useAppDispatch();
-  const { tickets, error, visiblelimit } = useAppSelector(
+  const { tickets, error, visiblelimit, filter } = useAppSelector(
     (state) => state.aviTickets
   );
   const [loading, setLoading] = useState<boolean>(true);
@@ -28,6 +30,16 @@ const AviTickets:FunctionComponent = () => {
     dispatch(loadMoreTickets());
   };
 
+  const filteredTickets = tickets.filter((ticket) => {
+    const cheap = parseFloat(ticket.price.replace(/ /g, ""));
+    const durationInMinutes = convertDurationToMinutes(ticket.duration);
+
+    if (filter === "cheap") return cheap <= 10000;
+    if (filter === "fast") return durationInMinutes <= 120;
+    if (filter === "optimal") return cheap <= 15000 && durationInMinutes <= 120;
+    return true;
+  });
+
   if (!tickets) {
     return <div>Ничего не найдено</div>;
   }
@@ -39,7 +51,7 @@ const AviTickets:FunctionComponent = () => {
     <>
       <div className={s.aviTickets__wrapper}>
         {loading && <div>Загрузка...</div>}
-        {tickets.slice(0, visiblelimit).map((el) => (
+        {filteredTickets.slice(0, visiblelimit).map((el) => (
           <div key={el.id} className={s.aviTickets}>
             <div className={s.top}>
               <p className={s.price}>{el.price} Р</p>
@@ -62,7 +74,7 @@ const AviTickets:FunctionComponent = () => {
           </div>
         ))}
       </div>
-      {visiblelimit < tickets.length ? (
+      {visiblelimit < filteredTickets.length ? (
         <Button onClick={clickLoadMore} className={s.button}>
           Загрузить еще билеты
         </Button>

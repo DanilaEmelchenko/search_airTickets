@@ -14,12 +14,14 @@ interface AviTicketsState {
   tickets: Ticket[];
   visiblelimit: number;
   error: string;
+  filter: string;
 }
 
 const initialState: AviTicketsState = {
   tickets: [],
   visiblelimit: 3,
   error: "",
+  filter: "all",
 };
 
 export const aviTicketsSlice = createSlice({
@@ -28,6 +30,9 @@ export const aviTicketsSlice = createSlice({
   reducers: {
     loadMoreTickets: (state) => {
       state.visiblelimit += 3;
+    },
+    setFilter: (state, action: PayloadAction<string>) => {
+      state.filter = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -50,5 +55,5 @@ export const aviTicketsSlice = createSlice({
   },
 });
 
-export const { loadMoreTickets } = aviTicketsSlice.actions;
+export const { loadMoreTickets, setFilter } = aviTicketsSlice.actions;
 export default aviTicketsSlice.reducer;
