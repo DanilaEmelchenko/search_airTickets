@@ -8,6 +8,7 @@ interface Ticket {
   duration: string;
   transferCount: string;
   logo: string;
+  company: string;
 }
 
 interface AviTicketsState {

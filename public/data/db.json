@@ -6,7 +6,8 @@
       "time": "12:00 - 16:30",
       "duration": "4 ч 30 мин",
       "transferCount": "1 пересадка",
-      "logo": "/images/pobeda.png"
+      "logo": "/images/pobeda.png",
+      "company": "Победа"
     },
     {
       "id": 2,
@@ -14,7 +15,8 @@
       "time": "14:00 - 16:00",
       "duration": "2 ч 0 мин",
       "transferCount": "Без пересадок",
-      "logo": "/images/red-wings.png"
+      "logo": "/images/red-wings.png",
+      "company": "Red Wings"
     },
     {
       "id": 3,
@@ -22,7 +24,8 @@
       "time": "04:50 - 13:30",
       "duration": "8 ч 40 мин",
       "transferCount": "2 пересадки",
-      "logo": "/images/airlines.png"
+      "logo": "/images/airlines.png",
+      "company": "S7 Airlines"
     },
     {
       "id": 4,
@@ -30,7 +33,8 @@
       "time": "12:00 - 16:30",
       "duration": "4 ч 30 мин",
       "transferCount": "1 пересадка",
-      "logo": "/images/pobeda.png"
+      "logo": "/images/pobeda.png",
+      "company": "Победа"
     },
     {
       "id": 5,
@@ -38,7 +42,8 @@
       "time": "14:00 - 16:00",
       "duration": "2 ч 0 мин",
       "transferCount": "Без пересадок",
-      "logo": "/images/red-wings.png"
+      "logo": "/images/red-wings.png",
+      "company": "Red Wings"
     },
     {
       "id": 6,
@@ -46,7 +51,8 @@
       "time": "04:50 - 13:30",
       "duration": "8 ч 40 мин",
       "transferCount": "3 пересадки",
-      "logo": "/images/airlines.png"
+      "logo": "/images/airlines.png",
+      "company": "S7 Airlines"
     },
     {
       "id": 7,
@@ -54,7 +60,8 @@
       "time": "12:00 - 16:30",
       "duration": "4 ч 30 мин",
       "transferCount": "1 пересадка",
-      "logo": "/images/pobeda.png"
+      "logo": "/images/pobeda.png",
+      "company": "Победа"
     },
     {
       "id": 8,
@@ -62,7 +69,8 @@
       "time": "14:00 - 16:00",
       "duration": "2 ч 0 мин",
       "transferCount": "Без пересадок",
-      "logo": "/images/red-wings.png"
+      "logo": "/images/red-wings.png",
+      "company": "Red Wings"
     },
     {
       "id": 9,
@@ -70,7 +78,8 @@
       "time": "04:50 - 13:30",
       "duration": "1 ч 40 мин",
       "transferCount": "3 пересадки",
-      "logo": "/images/airlines.png"
+      "logo": "/images/airlines.png",
+      "company": "S7 Airlines"
     }
   ]
 }
