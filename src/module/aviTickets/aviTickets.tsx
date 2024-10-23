@@ -3,8 +3,7 @@ import { FunctionComponent, useEffect, useState } from "react";
 
 import { fetchAviTickets } from "../../api/aviTicketsThunks";
 import { loadMoreTickets } from "../../state/aviTicketsSlice";
-
-import { convertDurationToMinutes } from "../../utils/index";
+import { filterTickets } from "../../utils/filterTickets";
 
 import Button from "../../ui/Button/Button";
 import s from "./aviTickets.module.scss";
@@ -30,32 +29,11 @@ const AviTickets: FunctionComponent = () => {
     dispatch(loadMoreTickets());
   };
 
-  const filteredTickets = tickets.filter((ticket) => {
-    const cheap = parseFloat(ticket.price.replace(/ /g, ""));
-    const durationInMinutes = convertDurationToMinutes(ticket.duration);
+  const filteredTickets = filterTickets(tickets, filter);
 
-    if (filter === "cheap") return cheap <= 10000;
-    if (filter === "fast") return durationInMinutes <= 120;
-    if (filter === "optimal") return cheap <= 15000 && durationInMinutes <= 120;
-    if (filter === "noneTransfer")
-      return ticket.transferCount === "Без пересадок";
-    if (filter === "oneTransfer") return ticket.transferCount === "1 пересадка";
-    if (filter === "twoTransfer") return ticket.transferCount === "2 пересадки";
-    if (filter === "threeTransfer")
-      return ticket.transferCount === "3 пересадки";
-    if (filter === "Победа") return ticket.company === "Победа";
-    if (filter === "S7 Airlines") return ticket.company === "S7 Airlines";
-    if (filter === "Red Wings") return ticket.company === "Red Wings";
-    return true;
-  });
+  if (!tickets) return <div>Ничего не найдено</div>;
+  if (error) return <div>Ошибка загрузки</div>;
 
-  if (!tickets) {
-    return <div>Ничего не найдено</div>;
-  }
-
-  if (error) {
-    return <div>Ошибка загрузки</div>;
-  }
   return (
     <>
       <div className={s.aviTickets__wrapper}>

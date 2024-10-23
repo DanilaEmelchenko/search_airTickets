@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { fetchAviTickets } from "../api/aviTicketsThunks";
 
-interface Ticket {
+export interface Ticket {
   id: number;
   price: string;
   time: string;
@@ -15,14 +15,14 @@ interface AviTicketsState {
   tickets: Ticket[];
   visiblelimit: number;
   error: string;
-  filter: string;
+  filter: string[];
 }
 
 const initialState: AviTicketsState = {
   tickets: [],
   visiblelimit: 3,
   error: "",
-  filter: "all",
+  filter: [],
 };
 
 export const aviTicketsSlice = createSlice({
@@ -33,7 +33,12 @@ export const aviTicketsSlice = createSlice({
       state.visiblelimit += 3;
     },
     setFilter: (state, action: PayloadAction<string>) => {
-      state.filter = action.payload;
+      if (!state.filter.includes(action.payload)) {
+        state.filter.push(action.payload);
+      }
+    },
+    removeFilter: (state, action: PayloadAction<string>) => {
+      state.filter = state.filter.filter((i) => i !== action.payload);
     },
   },
   extraReducers: (builder) => {
@@ -56,5 +61,5 @@ export const aviTicketsSlice = createSlice({
   },
 });
 
-export const { loadMoreTickets, setFilter } = aviTicketsSlice.actions;
+export const { loadMoreTickets, setFilter, removeFilter } = aviTicketsSlice.actions;
 export default aviTicketsSlice.reducer;

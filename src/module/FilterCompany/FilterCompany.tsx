@@ -2,12 +2,12 @@ import { FunctionComponent, useState } from "react";
 import Radio from "../../ui/Radio/Radio";
 import s from "./FilterCompany.module.scss";
 import { useAppDispatch } from "../../hooks/redux";
-import { setFilter } from "../../state/aviTicketsSlice";
+import { setFilter, removeFilter } from "../../state/aviTicketsSlice";
 
 interface ICompany {
   id: number;
   title: string;
-  filter: "Победа" | "Red Wings" | "S7 Airlines";
+  filter: string;
 }
 
 const arrayListCompany: ICompany[] = [
@@ -20,45 +20,16 @@ const FilterCompany: FunctionComponent = () => {
   const [visibleRadio, setVisibleRadio] = useState<number[]>([]);
   const dispatch = useAppDispatch();
 
-  const toggleVisible = (
-    id: number,
-    filter: "Победа" | "Red Wings" | "S7 Airlines"
-  ) => {
-    setVisibleRadio((prev) => {
-      if (prev.includes(id)) {
-        const newVisible = prev.filter((i) => i !== id);
-        dispatch(
-          setFilter(
-            newVisible.length > 0
-              ? newVisible
-                  .map(
-                    (companyId) =>
-                      arrayListCompany.find(
-                        (company) => company.id === companyId
-                      )?.filter
-                  )
-                  .join("|")
-              : ""
-          )
-        );
-        return newVisible;
-      } else {
-        const newVisible = [...prev, id];
-        dispatch(
-          setFilter(
-            newVisible
-              .map(
-                (companyId) =>
-                  arrayListCompany.find((company) => company.id === companyId)
-                    ?.filter
-              )
-              .join("|")
-          )
-        );
-        return newVisible;
-      }
-    });
+  const toggleVisible = (id: number, filter: string) => {
+    if (visibleRadio.includes(id)) {
+      setVisibleRadio((p) => p.filter((i) => i !== id));
+      dispatch(removeFilter(filter));
+    } else {
+      setVisibleRadio((p) => [...p, id]);
+      dispatch(setFilter(filter));
+    }
   };
+
   return (
     <div className={s.filterCompany}>
       <h2 className={s.title}>Компании</h2>

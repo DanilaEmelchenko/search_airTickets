@@ -3,12 +3,12 @@ import s from "./FilterPrice.module.scss";
 import { FunctionComponent, useState } from "react";
 import cn from "classnames";
 import { useAppDispatch } from "../../hooks/redux";
-import { setFilter } from "../../state/aviTicketsSlice";
+import { setFilter, removeFilter } from "../../state/aviTicketsSlice";
 
 interface IButton {
   id: number;
   title: string;
-  filter: "cheap" | "fast" | "optimal";
+  filter: string;
 }
 
 const arrayButtons: IButton[] = [
@@ -33,12 +33,12 @@ const FilterPrice: FunctionComponent = () => {
   const [active, setActive] = useState<number | null>(null);
   const dispatch = useAppDispatch();
 
-  const toggleActive = (id: number, filter: "cheap" | "fast" | "optimal") => {
+  const toggleActive = (id: number, filter: string) => {
     if (active === id) {
-      setActive((p) => (p === id ? null : id));
-      dispatch(setFilter("all"));
+      setActive(null);
+      dispatch(removeFilter(filter));
     } else {
-      setActive((p) => (p === id ? null : id));
+      setActive(id);
       dispatch(setFilter(filter));
     }
   };

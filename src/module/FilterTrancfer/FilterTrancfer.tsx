@@ -2,12 +2,12 @@ import { FunctionComponent, useState } from "react";
 import Checkbox from "../../ui/Checkbox/Checkbox";
 import s from "./FilterTrancfer.module.scss";
 import { useAppDispatch } from "../../hooks/redux";
-import { setFilter } from "../../state/aviTicketsSlice";
+import { setFilter, removeFilter } from "../../state/aviTicketsSlice";
 
 interface ITrancfer {
   id: number;
   title: string;
-  filter: "noneTransfer" | "oneTransfer" | "twoTransfer" | "threeTransfer";
+  filter: string;
 }
 
 const arrayListTrancfer: ITrancfer[] = [
@@ -21,15 +21,12 @@ const FilterTrancfer: FunctionComponent = () => {
   const [visibleCheckbox, setVisibleCheckbox] = useState<number | null>(null);
   const dispatch = useAppDispatch();
 
-  const toggleVisible = (
-    id: number,
-    filter: "noneTransfer" | "oneTransfer" | "twoTransfer" | "threeTransfer"
-  ) => {
-    if (visibleCheckbox) {
-      setVisibleCheckbox((p) => (p === id ? null : id));
-      dispatch(setFilter('all'));
+  const toggleVisible = (id: number, filter: string) => {
+    if (visibleCheckbox === id) {
+      setVisibleCheckbox(null);
+      dispatch(removeFilter(filter));
     } else {
-      setVisibleCheckbox((p) => (p === id ? null : id));
+      setVisibleCheckbox(id);
       dispatch(setFilter(filter));
     }
   };
