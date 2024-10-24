@@ -5,13 +5,14 @@ import "../index.scss";
 import Providers from "./providers/providers";
 import AviTickets from "../module/aviTickets/aviTickets";
 import { FunctionComponent } from "react";
+import FilterMobile from '../module/FilterMobile/FilterMobile';
 
 const App: FunctionComponent = () => {
   return (
     <Providers>
       <div className="container">
         <div className="header">
-          <img src="icons/logo.svg" alt="logo" />
+          <img className='logo' src="icons/logo.svg" alt="logo" />
           <h1 className="title">Поиск авиабилетов</h1>
         </div>
         <div className="main">
@@ -21,6 +22,7 @@ const App: FunctionComponent = () => {
           </div>
           <div className="content">
             <FilterPrice />
+            <FilterMobile />
             <div className="tickets">
               <AviTickets />
             </div>

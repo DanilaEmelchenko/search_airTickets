@@ -1,12 +1,10 @@
 @import "../../app/styles/variables";
-@import "../../app/styles/functions";
 @import "../../app/styles/fonts";
 
 .filterTrancfer {
   display: flex;
   flex-direction: column;
-  padding: adapt(19px, 1920px) adapt(19px, 1920px) adapt(49px, 1920px);
-  width: adapt(272px, 1920px);
+  padding: 19px 19px 49px;
   border-radius: 10px;
   background-color: $color-light-lavender;
   & .title {
@@ -15,16 +13,47 @@
     color: $color-purple;
   }
   & .filter {
-    margin-left: adapt(26px, 1920px);
+    margin-left: 26px;
     display: flex;
     flex-direction: column;
-    gap: adapt(19px, 1920px);
-    margin-top: adapt(29px, 1920px);
+    gap: 19px;
+    margin-top: 29px;
     & div {
       display: flex;
-      gap: adapt(29px, 1920px);
+      gap: 29px;
       & label {
         color: $color-lavender;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .filterTrancfer {
+    padding: 0;
+    background-color: transparent;
+    & .title {
+      color: $color-white;
+    }
+    & .filter {
+      margin-left: 0;
+      & div {
+        gap: 17px;
+        & label {
+          color: $color-white;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 430px) {
+  .filterTrancfer {
+    & .title {
+      font-size: 16px;
+    }
+    & .filter {
+      & label {
+        font-size: 12px;
       }
     }
   }

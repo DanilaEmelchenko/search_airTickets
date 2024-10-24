@@ -1,5 +1,4 @@
 @import "../../app/styles/variables";
-@import "../../app/styles/functions";
 
 .checkbox {
   display: flex;
@@ -7,11 +6,30 @@
   align-items: center;
   border: 1px solid $color-purple;
   border-radius: 4px;
-  width: adapt(21px, 1920px);
-  height: adapt(21px, 1920px);
+  width: 21px;
+  height: 21px;
   cursor: pointer;
   & div {
-    width: adapt(15px, 1920px);
-    height: adapt(15px, 1920px);
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .checkbox {
+    border: 1px solid $color-white;
+    & div {
+      background-color: $color-white;
+    }
+  }
+}
+@media only screen and (max-width: 430px) {
+  .checkbox {
+    width: 16px;
+    height: 16px;
+    & div {
+      width: 10px;
+      height: 10px;
+    }
   }
 }

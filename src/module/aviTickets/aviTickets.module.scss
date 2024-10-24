@@ -1,17 +1,15 @@
 @import "../../app/styles/variables";
-@import "../../app/styles/functions";
 @import "../../app/styles/fonts";
 
 .aviTickets__wrapper {
+  margin-top: 29px;
   display: flex;
   flex-direction: column;
-  gap: adapt(47px, 1920px);
+  gap: 47px;
   & .aviTickets {
-    margin-top: adapt(29px, 1920px);
     border-radius: 10px;
     background-color: $color-light-lavender;
-    padding: adapt(32px, 1920px) adapt(43px, 1920px) adapt(25px, 1920px)
-      adapt(39px, 1920px);
+    padding: 32px 43px 25px 39px;
     & .top {
       display: flex;
       justify-content: space-between;
@@ -20,15 +18,18 @@
         font-size: 32px;
         color: $color-purple;
       }
+      & .logo {
+        width: 118px;
+      }
     }
     & .bottom {
-      margin-top: adapt(25px, 1920px);
+      margin-top: 25px;
       display: flex;
       justify-content: space-between;
       & .route,
       & .status,
       & .transferTitle {
-        padding-bottom: adapt(9px, 1920px);
+        padding-bottom: 9px;
         font-weight: 500;
         color: $color-lavender;
       }
@@ -43,11 +44,28 @@
 }
 .button {
   width: 100%;
-  margin-top: adapt(74px, 1920px);
-  padding: adapt(16px, 1920px) 0 adapt(17px, 1920px);
+  margin-top: 74px;
+  padding: 16px 0 17px;
   font-weight: 700;
   font-size: 24px;
   color: $color-white;
   background-color: $color-purple;
   border-radius: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .aviTickets__wrapper {
+    margin-top: 34px;
+    gap: 53px;
+  }
+  .button {
+    padding: 16px 0 17px;
+    margin-top: 52px;
+  }
+}
+@media only screen and (max-width: 430px) {
+  .aviTickets__wrapper {
+    margin-top: 25px;
+    gap: 35px;
+  }
 }

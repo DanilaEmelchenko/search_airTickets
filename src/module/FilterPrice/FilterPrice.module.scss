@@ -1,11 +1,10 @@
 @import "../../app/styles/variables";
-@import "../../app/styles/functions";
 @import "../../app/styles/fonts";
 
 .filterPrice {
   display: flex;
   & .button {
-    padding: adapt(18px, 1920px) adapt(50px, 1920px);
+    padding: 18px 50px;
     border-right: 1px solid $color-purple;
     font-weight: 700;
     color: $color-purple;
@@ -21,5 +20,26 @@
   & .active {
     background-color: $color-purple;
     color: $color-white;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .filterPrice {
+    margin-top: 27px;
+    & .button {
+      width: 100%;
+      padding: 18px 0;
+    }
+  }
+}
+@media only screen and (max-width: 430px) {
+  .filterPrice {
+    margin-top: 24px;
+    & .button {
+      width: 100%;
+      padding: 13px 0;
+      font-weight: 500;
+      font-size: 12px;
+    }
   }
 }

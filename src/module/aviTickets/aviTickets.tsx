@@ -42,7 +42,7 @@ const AviTickets: FunctionComponent = () => {
           <div key={el.id} className={s.aviTickets}>
             <div className={s.top}>
               <p className={s.price}>{el.price} Р</p>
-              <img src={el.logo} alt={el.company} />
+              <img className={s.logo} src={el.logo} alt={el.company} />
             </div>
             <div className={s.bottom}>
               <div className={s.info}>

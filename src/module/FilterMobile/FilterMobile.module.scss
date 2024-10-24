@@ -1,0 +1,62 @@
+@import "../../app/styles/variables";
+@import "../../app/styles/fonts";
+
+@media only screen and (min-width: 769px) {
+  .filterMobile__wrapper {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .filterMobile__wrapper {
+    padding: 12px 27px 0 23px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: $color-purple;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.25);
+    & .filterMobile__header {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 13px;
+      & .title {
+        font-weight: 500;
+        font-size: 16px;
+        color: $color-white;
+      }
+      & .settings {
+        display: flex;
+        align-items: center;
+        gap: 17px;
+        & .settingsOpen {
+          font-weight: 500;
+          font-size: 12px;
+          color: $color-white;
+        }
+        & .icon {
+          width: 20px;
+          height: 12px;
+        }
+      }
+    }
+    & .filterMobile__main {
+      display: flex;
+      gap: 67px;
+      margin-top: 5px;
+      padding-bottom: 41px;
+    }
+  }
+}
+@media only screen and (max-width: 430px) {
+  .filterMobile__wrapper {
+    margin-top: 13px;
+    padding: 11px 19px 0 17px;
+    & .filterMobile__header {
+      & .title {
+        font-size: 12px;
+      }
+    }
+    & .settingsOpen {
+      display: none;
+    }
+  }
+}
